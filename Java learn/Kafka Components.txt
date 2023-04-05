@@ -1,0 +1,10 @@
+Kafka Components :-
+Producer
+Consumer
+Broker
+Cluster
+Topic
+Offset
+Partitions
+ConsumerGroup
+Zookeeper     

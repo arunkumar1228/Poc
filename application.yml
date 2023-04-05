@@ -1,0 +1,35 @@
+server:
+  port: 8081
+
+  servlet:
+    context-path: /qbrainx-web-home
+  tomcat:
+    relaxed-query-chars: [ '{','}' ]
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Qbrainx-website
+    username: postgres
+    password: admin@1234
+    driverClassName: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+
+
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true
+
+
+springdoc:
+  group-configs:
+    - group: qbrainx-website
+      packagesToScan:
+        - "com.web"
+  swagger-ui:
+    path: /qbrainx-1336586310L-swagger-ui.html
+  api-docs:
+    path: /v3/qbrainx-1336586310L-api-docs

@@ -1,0 +1,37 @@
+Project: Online Bookstore
+Role: Java Developer
+Duration: 6 months
+
+Description:
+Developed an online bookstore using Java and Spring Boot REST API. The system allows customers to browse books, add them to their cart, and place an order. The application provides an admin interface for managing products and orders.
+
+Key Features:
+
+Book catalog with search and filter options
+User registration and authentication
+Shopping cart and checkout process
+Order tracking and history
+Admin interface for managing products and orders
+Technologies Used:
+
+Java 8
+Spring Boot 2.5
+Spring Data JPA
+Spring Security
+MySQL
+Swagger for API documentation
+JUnit and Mockito for testing
+Challenges Faced:
+
+Designing an efficient database schema that can handle a large number of products and orders
+Implementing a secure authentication and authorization system
+Integrating a payment gateway for processing payments
+Ensuring the system is scalable and can handle a high volume of traffic
+Solution:
+
+Implemented a normalized database schema that allows for efficient searching and filtering of products and orders
+Used Spring Security to implement a secure authentication and authorization system with role-based access control
+Integrated Stripe payment gateway for processing payments
+Used caching to improve system performance and scalability
+Implemented automated testing with JUnit and Mockito to ensure system functionality and stability
+Used Swagger to document the REST API endpoints

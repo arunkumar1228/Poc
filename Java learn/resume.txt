@@ -1,0 +1,64 @@
+[Full Name]
+[Address]
+[Phone Number]
+[Email]
+
+Objective:
+To obtain a challenging role as a Java Developer where I can utilize my technical skills and experience to contribute to the success of the organization.
+
+Education:
+
+Bachelor of Technology (Computer Science and Engineering), [University Name], [Graduation Year]
+Technical Skills:
+
+Programming Languages: Java, Python,Scala
+Frameworks: Spring Boot, Hibernate, JPA
+Web Technologies: HTML, CSS, JavaScript, jQuery
+Databases: MySQL, PostgreSQL,
+Tools: Eclipse, IntelliJ IDEA, Git
+Professional Experience:
+
+Java Developer
+[Company Name]
+[Location]
+
+Key Responsibilities:
+
+Worked on developing web-based applications using Java, Spring Boot, Hibernate, and MySQL.
+Developed RESTful web services using Spring Boot and Hibernate.
+Worked on front-end development using HTML, CSS, and JavaScript.
+Collaborated with other developers and testers to ensure timely delivery of the project.
+Conducted unit testing and bug fixing to ensure the functionality and stability of the code.
+Participated in code review sessions to ensure the quality and readability of the code.
+Contributed to the documentation of the project.
+Projects:
+
+Online Library Management System
+
+Developed a web-based application using Java, Spring Boot, Hibernate, and MySQL.
+
+Implemented user registration and authentication, book catalog, borrowing, and returning functionality.
+
+Conducted unit testing and bug fixing to ensure the functionality and stability of the code.
+
+Online Shopping Cart
+
+Developed a web-based application using Java, Spring Boot, Hibernate, and MySQL.
+
+Implemented user registration and authentication, product catalog, shopping cart, and checkout functionality.
+
+Conducted unit testing and bug fixing to ensure the functionality and stability of the code.
+
+Certifications:
+
+Oracle Certified Professional, Java SE 11 Developer
+Personal Skills:
+
+Strong problem-solving and analytical skills
+Ability to work collaboratively in a team environment
+Strong written and verbal communication skills
+Quick learner and adaptable to new technologies and frameworks
+References:
+Available upon request.
+
+By including all the relevant details, you can showcase your technical skills and experience in a clear and concise manner to potential employers.
