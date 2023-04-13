@@ -1,8 +1,8 @@
-package com.web.Resource.webinar.repository;
+package com.web.resource.webinar.repository;
 
 
 
-import com.web.Resource.webinar.entity.Webinars;
+import com.web.resource.webinar.entity.Webinars;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

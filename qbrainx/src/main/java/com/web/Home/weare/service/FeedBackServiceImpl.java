@@ -1,12 +1,12 @@
-package com.web.Home.weare.service;
+package com.web.home.weare.service;
 
-import com.web.Exception.BannerNotFoundException;
-import com.web.Home.weare.dto.FeedBackDto;
-import com.web.Home.weare.dto.FeedBackImageDto;
-import com.web.Home.weare.entity.FeedBackImageEntity;
-import com.web.Home.weare.entity.FeedbackEntity;
-import com.web.Home.weare.repository.FeedBackImageRepository;
-import com.web.Home.weare.repository.FeedBackRepository;
+import com.web.exception.BannerNotFoundException;
+import com.web.home.weare.dto.FeedBackDto;
+import com.web.home.weare.dto.FeedBackImageDto;
+import com.web.home.weare.entity.FeedBackImageEntity;
+import com.web.home.weare.entity.FeedbackEntity;
+import com.web.home.weare.repository.FeedBackImageRepository;
+import com.web.home.weare.repository.FeedBackRepository;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,9 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -46,7 +44,6 @@ public class FeedBackServiceImpl implements FeedBackService {
         image.setData(file.getBytes());
         feedBackImageRepository.save(image);
         FeedbackEntity feedbackEntity = dozerBeanMapper.map(feedBackDto, FeedbackEntity.class);
-        feedbackEntity.setId(feedBackDto.getId());
         feedbackEntity.setDescription(feedBackDto.getDescription());
         feedbackEntity.setLink(feedBackDto.getLink());
         feedbackEntity.setFeedBackImage(image);
@@ -59,7 +56,7 @@ public class FeedBackServiceImpl implements FeedBackService {
     public String deleteFeedback(int id) {
         try {
             feedBackRepository.deleteById(id);
-        } catch ( BannerNotFoundException e) {
+        } catch (BannerNotFoundException e) {
             return (e.getMessage());
         }
         return "Deleted Successfully";
@@ -67,23 +64,20 @@ public class FeedBackServiceImpl implements FeedBackService {
 
     @Override
     public FeedBackDto updateFeedbackDetails(int id, FeedBackDto feedBackDto, MultipartFile file) throws IOException {
-        Optional<FeedbackEntity> feedback = feedBackRepository.findById(id);
-        FeedbackEntity feedbackEntity = feedback.get();
+        FeedbackEntity feedbackEntity = feedBackRepository.findById(id).get();
 
-        if (feedback.isPresent()) {
+        if (!(file == null)) {
 
-            if (file == null) {
-                feedbackEntity.setId(feedBackDto.getId());
-                feedbackEntity.setDescription(feedBackDto.getDescription());
-                feedbackEntity.setLink(feedBackDto.getLink());
-                feedBackRepository.save(feedbackEntity);
-            } else {
-                FeedBackImageEntity image = feedback.get().getFeedBackImage();
-                image.setFileName(file.getOriginalFilename());
-                image.setData(file.getBytes());
-                feedBackImageRepository.save(image);
-            }
+            FeedBackImageEntity image = feedbackEntity.getFeedBackImage();
+            image.setFileName(file.getOriginalFilename());
+            image.setData(file.getBytes());
+            feedBackImageRepository.save(image);
         }
+
+        feedbackEntity.setDescription(feedBackDto.getDescription());
+        feedbackEntity.setLink(feedBackDto.getLink());
+        feedBackRepository.save(feedbackEntity);
+
         FeedBackDto dto = dozerBeanMapper.map(feedbackEntity, FeedBackDto.class);
         return dto;
     }

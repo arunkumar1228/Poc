@@ -1,10 +1,10 @@
-package com.web.Home.Life.service;
+package com.web.home.life.service;
 
 
 
 
 
-import com.web.Home.Life.dto.TextDto;
+import com.web.home.life.dto.TextDto;
 
 
 import java.util.List;

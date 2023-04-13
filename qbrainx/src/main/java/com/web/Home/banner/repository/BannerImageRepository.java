@@ -1,8 +1,8 @@
-package com.web.Home.banner.repository;
+package com.web.home.banner.repository;
 
 
 
-import com.web.Home.banner.entity.BannerImageEntity;
+import com.web.home.banner.entity.BannerImageEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.web.Admin.dto;
+package com.web.admin.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,9 +1,9 @@
-package com.web.Home.WeOffers.controller;
+package com.web.home.weOffers.controller;
 
 
 
-import com.web.Home.WeOffers.dto.NewsDto;
-import com.web.Home.WeOffers.service.NewsService;
+import com.web.home.weOffers.dto.NewsDto;
+import com.web.home.weOffers.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

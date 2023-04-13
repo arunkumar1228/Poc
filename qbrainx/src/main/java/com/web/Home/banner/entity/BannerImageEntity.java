@@ -1,4 +1,4 @@
-package com.web.Home.banner.entity;
+package com.web.home.banner.entity;
 
 
 

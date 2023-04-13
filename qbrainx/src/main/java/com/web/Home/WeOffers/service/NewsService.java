@@ -1,5 +1,5 @@
-package com.web.Home.WeOffers.service;
-import com.web.Home.WeOffers.dto.NewsDto;
+package com.web.home.weOffers.service;
+import com.web.home.weOffers.dto.NewsDto;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;

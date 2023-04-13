@@ -1,4 +1,4 @@
-package com.web.Admin.entity;
+package com.web.admin.entity;
 
 import lombok.Data;
 

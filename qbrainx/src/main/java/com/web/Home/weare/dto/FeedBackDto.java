@@ -1,8 +1,7 @@
-package com.web.Home.weare.dto;
+package com.web.home.weare.dto;
 
 
 
-import com.web.Home.weare.entity.FeedBackImageEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

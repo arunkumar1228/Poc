@@ -1,4 +1,4 @@
-package com.web.Home.weare.dto;
+package com.web.home.weare.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

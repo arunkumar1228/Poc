@@ -1,4 +1,4 @@
-package com.web.Home.Life.entity;
+package com.web.home.life.entity;
 
 
 
@@ -20,7 +20,6 @@ public class TextEntity extends BaseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(length = 500)
 	private String textTitle;
 
 	private String textSubTitle;

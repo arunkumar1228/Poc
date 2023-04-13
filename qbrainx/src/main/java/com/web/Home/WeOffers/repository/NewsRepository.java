@@ -1,7 +1,7 @@
-package com.web.Home.WeOffers.repository;
+package com.web.home.weOffers.repository;
 
 
-import com.web.Home.WeOffers.entity.NewsEntity;
+import com.web.home.weOffers.entity.NewsEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

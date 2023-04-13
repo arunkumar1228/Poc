@@ -1,8 +1,8 @@
-package com.web.Home.banner.controller;
+package com.web.home.banner.controller;
 
 
-import com.web.Home.banner.dto.BannerDto;
-import com.web.Home.banner.service.BannerService;
+import com.web.home.banner.dto.BannerDto;
+import com.web.home.banner.service.BannerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,34 +19,37 @@ public class BannerController {
     @Autowired
     BannerService bannerService;
 
-    @GetMapping("/getAll")
+    @GetMapping("/getAllBanners")
     public ResponseEntity<List<BannerDto>> allBannerList() {
         List<BannerDto> list = bannerService.getAllList();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public BannerDto BannerDtoUploadImage(@RequestParam("file") MultipartFile file, BannerDto bannerdto) throws IOException {
-
-        return bannerService.createBanner(bannerdto, file);
-
+    @PostMapping(value = "/createBanner", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file, BannerDto bannerdto) {
+        try {
+            bannerService.createBanner(bannerdto, file);
+            return ResponseEntity.ok().body("Banner saved successfully.");
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred while saving addresses.");
+        }
 
     }
 
-    @DeleteMapping("/deleteById")
-    public String deleteBannerById(@RequestParam int id) {
+    @DeleteMapping("/deleteBannerById")
+    public  String deleteBannerById(@RequestParam int id)   {
         return bannerService.deleteBanner(id);
     }
 
-    @GetMapping("/getById")
-    public BannerDto getBanner(@RequestParam int id) {
-        return bannerService.getBannerById(id);
+    @GetMapping("/getBannerById")
+    public BannerDto getBanner(@RequestParam int id)  {
+       return bannerService.getBannerById(id);
     }
 
 
-    @PutMapping(value = "/updateDetailsById", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<BannerDto> updateImage(@RequestParam int id, @RequestParam(value = "file", required = false) MultipartFile file, BannerDto bannerdto) {
-        return new ResponseEntity<>(bannerService.updateBannerDetails(id, bannerdto, file), HttpStatus.OK);
+    @PutMapping(value = "/updateBannerDetailsById", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<BannerDto> updateImage(@RequestParam int id,@RequestParam(value = "file", required = false) MultipartFile file, BannerDto bannerdto) throws IOException {
+        return new ResponseEntity<>(bannerService.updateBannerDetails(id,bannerdto, file), HttpStatus.OK);
     }
 
 

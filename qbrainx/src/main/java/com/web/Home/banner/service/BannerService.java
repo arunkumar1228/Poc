@@ -1,7 +1,7 @@
-package com.web.Home.banner.service;
+package com.web.home.banner.service;
 
 
-import com.web.Home.banner.dto.BannerDto;
+import com.web.home.banner.dto.BannerDto;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -14,7 +14,7 @@ public interface BannerService {
 
     String deleteBanner(int id);
 
-    BannerDto updateBannerDetails(int id, BannerDto bannerDto, MultipartFile file);
+    BannerDto updateBannerDetails(int id, BannerDto bannerDto, MultipartFile file) throws IOException;
 
     BannerDto getBannerById(int id) ;
 

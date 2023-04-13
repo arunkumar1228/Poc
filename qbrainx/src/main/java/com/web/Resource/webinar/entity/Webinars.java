@@ -1,4 +1,4 @@
-package com.web.Resource.webinar.entity;
+package com.web.resource.webinar.entity;
 
 
 import com.web.utils.BaseEntity;
@@ -20,7 +20,7 @@ public class Webinars extends BaseEntity {
     private int id;
     private String Title;
     private String subTitle;
-    @Column(length = 10000)
+    @Column(columnDefinition = "VARCHAR(1000000)")
     private String Text;
     private LocalDate Date;
 

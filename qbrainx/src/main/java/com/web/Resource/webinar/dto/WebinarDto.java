@@ -1,4 +1,4 @@
-package com.web.Resource.webinar.dto;
+package com.web.resource.webinar.dto;
 
 
 import lombok.AllArgsConstructor;

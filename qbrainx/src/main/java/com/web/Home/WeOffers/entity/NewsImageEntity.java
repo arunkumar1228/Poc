@@ -1,4 +1,4 @@
-package com.web.Home.WeOffers.entity;
+package com.web.home.weOffers.entity;
 
 
 import lombok.*;

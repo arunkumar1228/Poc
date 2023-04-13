@@ -1,6 +1,6 @@
-package com.web.Home.weare.repository;
+package com.web.home.weare.repository;
 
-import com.web.Home.weare.entity.FeedbackEntity;
+import com.web.home.weare.entity.FeedbackEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

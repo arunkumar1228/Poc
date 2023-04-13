@@ -1,8 +1,8 @@
-package com.web.Home.Life.repository;
+package com.web.home.life.repository;
 
 
 
-import com.web.Home.Life.entity.TextEntity;
+import com.web.home.life.entity.TextEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

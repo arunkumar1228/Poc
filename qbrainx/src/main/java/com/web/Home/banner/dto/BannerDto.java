@@ -1,4 +1,4 @@
-package com.web.Home.banner.dto;
+package com.web.home.banner.dto;
 
 
 

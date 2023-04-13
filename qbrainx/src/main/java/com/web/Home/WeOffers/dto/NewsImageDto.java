@@ -1,4 +1,4 @@
-package com.web.Home.WeOffers.dto;
+package com.web.home.weOffers.dto;
 
 
 import lombok.Data;

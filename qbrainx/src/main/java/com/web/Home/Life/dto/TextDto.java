@@ -1,4 +1,4 @@
-package com.web.Home.Life.dto;
+package com.web.home.life.dto;
 
 
 import lombok.*;

@@ -1,7 +1,7 @@
-package com.web.Admin.service;
+package com.web.admin.service;
 
 
-import com.web.Admin.dto.AdminDto;
+import com.web.admin.dto.AdminDto;
 import org.springframework.stereotype.Service;
 
 import javax.naming.AuthenticationException;

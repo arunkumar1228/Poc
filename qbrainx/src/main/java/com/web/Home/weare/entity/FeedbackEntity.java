@@ -1,4 +1,4 @@
-package com.web.Home.weare.entity;
+package com.web.home.weare.entity;
 
 
 import com.web.utils.BaseEntity;

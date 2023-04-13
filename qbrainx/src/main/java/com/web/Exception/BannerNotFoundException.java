@@ -1,4 +1,4 @@
-package com.web.Exception;
+package com.web.exception;
 
 public class BannerNotFoundException  extends RuntimeException{
     public BannerNotFoundException(int id) {

@@ -1,4 +1,4 @@
-package com.web.Resource.webinar.entity;
+package com.web.resource.webinar.entity;
 
 
 
@@ -19,7 +19,7 @@ import javax.persistence.*;
 @Table(name = "Webinars_image_details")
 public class WebinarsImage  extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String fileName;
     @Lob

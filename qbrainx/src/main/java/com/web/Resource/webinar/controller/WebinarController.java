@@ -1,8 +1,8 @@
-package com.web.Resource.webinar.controller;
+package com.web.resource.webinar.controller;
 
 
-import com.web.Resource.webinar.dto.WebinarDto;
-import com.web.Resource.webinar.service.WebinarService;
+import com.web.resource.webinar.service.WebinarService;
+import com.web.resource.webinar.dto.WebinarDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -45,7 +45,7 @@ public class WebinarController {
 
 
     @PutMapping(value = "/updateDetailsById", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<WebinarDto> updateWebinarDetails(@RequestParam int id, @RequestParam(value = "file", required = false) MultipartFile file, WebinarDto webinarDto) {
+    public ResponseEntity<WebinarDto> updateWebinarDetails(@RequestParam int id, @RequestParam(value = "file", required = false) MultipartFile file, WebinarDto webinarDto) throws IOException {
         return new ResponseEntity<>(webinarService.updateWebinarDetails(id, webinarDto, file), HttpStatus.OK);
     }
 

@@ -1,9 +1,9 @@
-package com.web.Resource.webinar.service;
+package com.web.resource.webinar.service;
 
 
 
 
-import com.web.Resource.webinar.dto.WebinarDto;
+import com.web.resource.webinar.dto.WebinarDto;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -16,7 +16,7 @@ public interface WebinarService {
 
     String deleteWebinar(int id);
 
-    WebinarDto updateWebinarDetails(int id, WebinarDto webinarDto, MultipartFile file);
+    WebinarDto updateWebinarDetails(int id, WebinarDto webinarDto, MultipartFile file) throws IOException;
 
     WebinarDto getWebinarById(int id) ;
 

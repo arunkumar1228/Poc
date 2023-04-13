@@ -1,12 +1,12 @@
-package com.web.Home.WeOffers.service;
+package com.web.home.weOffers.service;
 
-import com.web.Exception.BannerNotFoundException;
-import com.web.Home.WeOffers.dto.NewsDto;
-import com.web.Home.WeOffers.dto.NewsImageDto;
-import com.web.Home.WeOffers.entity.NewsEntity;
-import com.web.Home.WeOffers.entity.NewsImageEntity;
-import com.web.Home.WeOffers.repository.NewsImageRepository;
-import com.web.Home.WeOffers.repository.NewsRepository;
+import com.web.exception.BannerNotFoundException;
+import com.web.home.weOffers.dto.NewsDto;
+import com.web.home.weOffers.dto.NewsImageDto;
+import com.web.home.weOffers.entity.NewsEntity;
+import com.web.home.weOffers.entity.NewsImageEntity;
+import com.web.home.weOffers.repository.NewsImageRepository;
+import com.web.home.weOffers.repository.NewsRepository;
 import org.dozer.DozerBeanMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -42,14 +41,13 @@ public class NewsServiceImpl implements NewsService {
         image.setData(file.getBytes());
         newsImageRepository.save(image);
         NewsEntity newsEntity = dozerBeanMapper.map(newsDto, NewsEntity.class);
-        newsEntity.setId(newsDto.getId());
         newsEntity.setTitle(newsDto.getTitle());
         newsEntity.setDescription(newsDto.getDescription());
         newsEntity.setLink(newsDto.getLink());
         newsEntity.setNewsImage(image);
         NewsEntity news = newsRepository.save(newsEntity);
-        NewsDto dto = dozerBeanMapper.map(news, NewsDto.class);
-        return dto;
+        return dozerBeanMapper.map(news, NewsDto.class);
+
     }
 
     @Override
@@ -64,29 +62,28 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public NewsDto updateNewsDetails(int id, NewsDto newsDto, MultipartFile file) throws IOException {
-        Optional<NewsEntity> news = newsRepository.findById(id);
-        NewsEntity newsEntity = news.get();
-        if (news.isPresent()) {
-            if (file == null) {
-                newsEntity.setId(newsDto.getId());
-                newsEntity.setTitle(newsDto.getTitle());
-                newsEntity.setDescription(newsDto.getDescription());
-                newsEntity.setLink(newsDto.getLink());
-                newsRepository.save(newsEntity);
-            } else {
-                NewsImageEntity image = news.get().getNewsImage();
-                image.setImageName(file.getOriginalFilename());
-                image.setData(file.getBytes());
-                newsImageRepository.save(image);
-            }
+        NewsEntity news = newsRepository.findById(id).get();
+
+        if (!(file == null)) {
+            NewsImageEntity image = news.getNewsImage();
+            image.setImageName(file.getOriginalFilename());
+            image.setData(file.getBytes());
+            newsImageRepository.save(image);
+
 
         }
-        NewsDto dto = dozerBeanMapper.map(newsEntity, NewsDto.class);
+        news.setTitle(newsDto.getTitle());
+        news.setDescription(newsDto.getDescription());
+        news.setLink(newsDto.getLink());
+        newsRepository.save(news);
+
+
+        NewsDto dto = dozerBeanMapper.map(news, NewsDto.class);
         return dto;
     }
 
     @Override
-    public NewsDto getNewsById(int id)  {
+    public NewsDto getNewsById(int id) {
         NewsEntity newsEntity = newsRepository.findById(id)
                 .orElseThrow(() -> new BannerNotFoundException(id));
         NewsDto dto = dozerBeanMapper.map(newsEntity, NewsDto.class);

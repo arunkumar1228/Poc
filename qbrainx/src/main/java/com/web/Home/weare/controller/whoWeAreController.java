@@ -1,8 +1,8 @@
-package com.web.Home.weare.controller;
+package com.web.home.weare.controller;
 
 
-import com.web.Home.weare.dto.FeedBackDto;
-import com.web.Home.weare.service.FeedBackService;
+import com.web.home.weare.dto.FeedBackDto;
+import com.web.home.weare.service.FeedBackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,7 +22,7 @@ public class whoWeAreController {
 
 
     @GetMapping("/getAll")
-    public ResponseEntity<List<FeedBackDto>> allBannerList() {
+    public ResponseEntity<List<FeedBackDto>> allFeedbackList() {
         List<FeedBackDto> list = feedBackService.getAllList();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
@@ -33,12 +33,12 @@ public class whoWeAreController {
     }
 
     @DeleteMapping("/deleteById")
-    public String deleteBannerById(@RequestParam int id) throws IOException {
+    public String deleteFeedbackById(@RequestParam int id) throws IOException {
         return feedBackService.deleteFeedback(id);
     }
 
     @GetMapping("/getById")
-    public FeedBackDto getBanner(@RequestParam int id) {
+    public FeedBackDto getFeedback(@RequestParam int id) {
         return feedBackService.getFeedbackById(id);
     }
 

@@ -1,9 +1,9 @@
-package com.web.Admin.service;
+package com.web.admin.service;
 
-import com.web.Admin.dto.AdminDto;
+import com.web.admin.dto.AdminDto;
 
-import com.web.Admin.entity.AdminEntity;
-import com.web.Admin.repository.AdminRepository;
+import com.web.admin.entity.AdminEntity;
+import com.web.admin.repository.AdminRepository;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

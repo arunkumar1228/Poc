@@ -1,12 +1,12 @@
-package com.web.Resource.webinar.service;
+package com.web.resource.webinar.service;
 
-import com.web.Exception.BannerNotFoundException;
-import com.web.Resource.webinar.dto.WebinarDto;
-import com.web.Resource.webinar.dto.WebinarsImageDto;
-import com.web.Resource.webinar.entity.Webinars;
-import com.web.Resource.webinar.entity.WebinarsImage;
-import com.web.Resource.webinar.repository.WebinarImageRepository;
-import com.web.Resource.webinar.repository.WebinarsRepository;
+import com.web.exception.BannerNotFoundException;
+import com.web.resource.webinar.dto.WebinarDto;
+import com.web.resource.webinar.dto.WebinarsImageDto;
+import com.web.resource.webinar.entity.Webinars;
+import com.web.resource.webinar.repository.WebinarImageRepository;
+import com.web.resource.webinar.repository.WebinarsRepository;
+import com.web.resource.webinar.entity.WebinarsImage;
 import lombok.extern.slf4j.Slf4j;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,7 +35,8 @@ public class WebinarServiceImpl implements WebinarService {
     public List<WebinarDto> getAllList() {
         List<Webinars> webinars = webinarsRepository.findAll();
         return webinars.stream().map(allList -> dozerBeanMapper.map(allList, WebinarDto.class)
-        ).collect(Collectors.toList());    }
+        ).collect(Collectors.toList());
+    }
 
     @Override
     public WebinarDto createWebinar(WebinarDto webinarDto, MultipartFile file) throws IOException {
@@ -57,45 +57,41 @@ public class WebinarServiceImpl implements WebinarService {
         webinars.setDate(LocalDate.now());
         webinars.setImage(image);
         Webinars entity = webinarsRepository.save(webinars);
-        WebinarDto dto = dozerBeanMapper.map(entity, WebinarDto.class);
-        return dto;
+        return dozerBeanMapper.map(entity, WebinarDto.class);
+
 
     }
 
     @Override
-    public String deleteWebinar(int id)   {
+    public String deleteWebinar(int id) {
         try {
             webinarsRepository.deleteById(id);
-        } catch ( BannerNotFoundException e) {
+        } catch (BannerNotFoundException e) {
             return (e.getMessage());
         }
         return "Deleted Successfully";
     }
 
     @Override
-    public WebinarDto updateWebinarDetails(int id, WebinarDto webinarDto, MultipartFile file) {
-        Optional<Webinars> webinars = webinarsRepository.findById(id);
-        Webinars webEntity = webinars.get();
+    public WebinarDto updateWebinarDetails(int id, WebinarDto webinarDto, MultipartFile file) throws IOException {
+        Webinars webinars = webinarsRepository.findById(id).get();
 
-        if (webinars.isPresent()) {
 
-            if (file == null) {
+        if (!(file == null)) {
 
-                webEntity.setTitle(webinarDto.getTitle());
-                webEntity.setSubTitle(webinarDto.getSubTitle());
-                webEntity.setText(webEntity.getText());
-                webEntity.setDate(LocalDate.now());
-                webinarsRepository.save(webEntity);
-            } else {
-                WebinarsImage image = webinars.get().getImage();
-                image.setFileName(file.getOriginalFilename());
-                image.setData(file.toString().getBytes());
-                webinarImageRepository.save(image);
-            }
+            WebinarsImage image = webinars.getImage();
+            image.setFileName(file.getOriginalFilename());
+            image.setData(file.getBytes());
+            webinarImageRepository.save(image);
         }
-        webinarsRepository.save(webEntity);
-        WebinarDto dto = dozerBeanMapper.map(webEntity, WebinarDto.class);
-        return dto;
+        webinars.setTitle(webinarDto.getTitle());
+        webinars.setSubTitle(webinarDto.getSubTitle());
+        webinars.setText(webinarDto.getText());
+        webinars.setDate(LocalDate.now());
+
+        webinarsRepository.save(webinars);
+        return dozerBeanMapper.map(webinars, WebinarDto.class);
+
     }
 
 

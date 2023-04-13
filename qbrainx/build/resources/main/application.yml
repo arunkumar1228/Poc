@@ -1,17 +1,17 @@
 server:
+
  servlet:
   context-path: /qbrainx-web
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/MicroService
+    url: jdbc:postgresql://localhost:5432/QbrainxWebsite
     username: postgres
     password: admin@1234
     driverClassName: org.postgresql.Driver
-
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect

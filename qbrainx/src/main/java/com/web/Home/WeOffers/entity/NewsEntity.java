@@ -1,4 +1,4 @@
-package com.web.Home.WeOffers.entity;
+package com.web.home.weOffers.entity;
 
 
 import com.web.utils.BaseEntity;
@@ -16,8 +16,7 @@ public class NewsEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    private String title;
+    private String Title;
     private String description;
 
     private String link;

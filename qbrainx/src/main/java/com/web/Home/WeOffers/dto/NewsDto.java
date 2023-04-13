@@ -1,15 +1,11 @@
-package com.web.Home.WeOffers.dto;
+package com.web.home.weOffers.dto;
 
 
 
-import com.web.Home.WeOffers.entity.NewsImageEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.OneToOne;
-
 
 
 @Data
@@ -18,7 +14,7 @@ import javax.persistence.OneToOne;
 @Builder
 public class NewsDto {
     private int id;
-    private String title;
+    private String Title;
     private String description;
 
     private String link;

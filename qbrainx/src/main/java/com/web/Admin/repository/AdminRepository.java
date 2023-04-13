@@ -1,8 +1,8 @@
-package com.web.Admin.repository;
+package com.web.admin.repository;
 
 
 
-import com.web.Admin.entity.AdminEntity;
+import com.web.admin.entity.AdminEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.stereotype.Repository;

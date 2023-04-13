@@ -1,7 +1,7 @@
-package com.web.Admin.controller;
+package com.web.admin.controller;
 
-import com.web.Admin.dto.AdminDto;
-import com.web.Admin.service.AdminService;
+import com.web.admin.dto.AdminDto;
+import com.web.admin.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
